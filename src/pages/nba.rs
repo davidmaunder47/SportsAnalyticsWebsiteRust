@@ -73,19 +73,11 @@ fn covert_string_to_int(input: &str) -> i32 {
 pub fn table_build<T: DBStructSupport>(table: Resource<Result<Vec<T>>>, player: T) -> Element
 where T: Serialize + 'static + std::cmp::PartialEq + std::clone::Clone,
 {
-    let ref_guard = table.read_unchecked();
     let mut player_data = use_signal(|| Vec::<T>::new());
-    // let mut unwrap_table = match &*ref_guard {
-    //     Some(Ok(data)) => player_data.set(data.clone()),
-    //     Some(Err(err)) => return rsx! { "Error: {err}" },
-    //     None => return rsx! { div { "Fetching data..." } },
-    // };
 
-    // 2. Track the Resource state reactively
+    // Track the Resource state
     let resource_result = table.read();
 
-    // 3. EFFECT: When the resource finishes fetching NEW data, update player_data
-    // This runs every time the Resource (table) changes its value
     use_effect(move || {
         if let Some(Ok(new_data)) = table.read().as_ref() {
             player_data.set(new_data.clone());
@@ -101,7 +93,6 @@ where T: Serialize + 'static + std::cmp::PartialEq + std::clone::Clone,
     }
 
     let headers = convert_json_tostringvec(&player).unwrap_or_default();
-    let mut tbd = use_signal(|| "".to_string());
     let function_player = use_signal(||player.clone());
     let mut descending = use_signal(|| true);
 
@@ -113,10 +104,8 @@ where T: Serialize + 'static + std::cmp::PartialEq + std::clone::Clone,
                         style: "cursor: pointer;",
                         onclick: {
                             let h = header.clone();
-                            let h2 = header.clone();
                             move |_| {
-                                tbd.set(h.clone());
-                                function_player.read().sort_vector(&mut player_data.write(), h2.clone(), *descending.read());
+                                function_player.read().sort_vector(&mut player_data.write(), h.clone(), *descending.read());
                                 descending.toggle();
                             }
                         },
@@ -137,55 +126,8 @@ where T: Serialize + 'static + std::cmp::PartialEq + std::clone::Clone,
                 }
             }
         }
-
-        {tbd}
     }
 }
-
-
-
-// #[component]
-// pub fn table_build_no_clickable_columns<T: DBStructSupport>(table: Vec<T>, player: T) -> Element
-// where T: Serialize + 'static + std::cmp::PartialEq + std::clone::Clone,
-// {
-//     let headers = match convert_json_tostringvec(&player) {
-//         Ok(h) => h,
-//         Err(_) => vec![],
-//     };
-//
-//     let player_data = use_signal(|| table);
-//
-//     rsx! {
-//         table {
-//             // 1. Header Row
-//             tr {
-//                 for header in &headers {
-//                     th {
-//                         style: "cursor: pointer;",
-//                         // onclick: move |_| {
-//                         //
-//                         // },
-//                         "{header}"
-//                     }
-//                 }
-//             }
-//
-//             for p in player_data.read().iter().take(50) {
-//                 if let Ok(json_val) = serde_json::to_value(p) {
-//                     if let Some(obj) = json_val.as_object() {
-//                         tr { // START a new row for each player
-//                             for (_key, value) in obj {
-//                                 td { "{value}" }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-
 
 #[component]
 pub fn Stats() -> Element {
