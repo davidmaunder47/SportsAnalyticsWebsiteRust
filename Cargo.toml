@@ -1,0 +1,37 @@
+[package]
+name = "sports_app"
+version = "0.1.0"
+authors = ["davidmaunder <maunder.j@northeastern.edu>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dioxus = { version = "0.7.1", features = ["fullstack"] }
+dioxus-router = "0.7.0"
+anyhow = "1.0.101"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = {  version = "1.0.149", features = ["preserve_order"] }
+
+tokio = { version = "1", features = ["full"], optional = true }
+axum = { version = "0.8.4", features = ["http2", "macros", "ws", "multipart"], optional = true }
+reqwest = { version = "0.12", features = ["json"], optional = true }
+sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio-rustls", "uuid", "macros"], optional = true }
+uuid = { version = "1.20.0", features = ["v4"], optional = true }
+thiserror = "2.0.18"
+
+[features]
+default = ["web"]
+
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+
+server = [
+    "dioxus/server",
+    "dep:tokio",
+    "dep:axum",
+    "dep:reqwest",
+    "dep:sqlx",
+    "dep:uuid"
+]

@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f3f3;
+    color: #222;
+}
+
+header {
+    background-color: #1d428a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav {
+    background-color: #e56020;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffe600;
+}
+
+.hero {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Year selector */
+.year-select {
+    margin: 0 10px;
+    padding: 5px;
+}
+
+/* Table styles */
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.standings-table th,
+.standings-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.standings-table th {
+    background-color: #17408B;
+    color: white;
+}
+
+.standings-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+footer {
+    background-color: #1d428a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}

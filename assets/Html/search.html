@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./CSS/navbox.css">
+    <link rel="stylesheet" href="./CSS/common.css">
+</head>
+<body>
+
+<div class="nav-box">
+    <a href="./index">Home</a>
+    <a href="./search">Search</a>
+    <a href="./leagues/leagues">Leagues</a>
+    <a href="./getinfo">GetInfo</a>
+    <a href="./comment">Comments</a>
+</div>
+
+<h1>Stat Lookup</h1>
+
+<form action="/search" method="GET">
+    <input type="text" name="query" placeholder="Enter player, team, or stat..." required />
+    <button type="submit">Search</button>
+</form>
+
+
+<p class="note">This form submits to <code>/search</code> using GET. Replace with your backend endpoint.</p>
+
+</body>
+</html>

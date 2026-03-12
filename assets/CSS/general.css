@@ -1,0 +1,92 @@
+
+/*Middle h1 header */
+.pageinfo {
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 20px 0 20px;
+    color: white;
+}
+
+/*grid system */
+
+.section {
+    margin: 0 0 20px 0;
+}
+
+.section h2 {
+    color: #00ffcc;
+    padding-left: 4% ;
+    margin: 0;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: flex-start; /* push items to left */
+    align-items: flex-start;     /* align items to top */
+}
+
+.cards > .card {
+    flex: 1 1 calc((100% / 3) - (2/3 * 1em)); /* 3 per row */
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .cards > .card {
+        flex: 1 1 calc((100% / 2) - (1/2 * 1em)); /* 2 per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .cards > .card {
+        flex: 1 1 100%; /* 1 per row */
+    }
+}
+
+.card {
+    text-align: center;
+    transition: transform 0.3s;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5%);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    margin-top: -4%;
+    color: white;
+}
+
+.card p {
+    font-size: 20px;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: fill;
+    transform: scale(0.75);
+}
+
+/*footer to be overriden */
+footer {
+    background-color: #1f1f1f;
+    padding: 30px 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}

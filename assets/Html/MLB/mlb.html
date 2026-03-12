@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MLB Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a2240;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background-color: #c60c30;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffde00;
+    }
+
+    .hero {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Baseball_diamond_marines.jpg') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      width: 250px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #0a2240;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background-color: #0a2240;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MLB Hub</h1>
+  <p>Your source for everything baseball</p>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Teams</a>
+  <a href="#">Players</a>
+  <a href="#">Stats</a>
+  <a href="#">News</a>
+</nav>
+
+<div class="hero">
+  <h2>Welcome to the Big Leagues</h2>
+</div>
+
+<div class="content">
+  <a href="/teams.html" class="card">Explore Teams</a>
+  <a href="/players.html" class="card">Player Profiles</a>
+  <a href="/stats.html" class="card">Live Stats</a>
+  <a href="/news.html" class="card">MLB News</a>
+</div>
+
+<footer>
+  &copy; 2025 MLB Hub. Not affiliated with Major League Baseball.
+</footer>
+
+</body>
+</html>
